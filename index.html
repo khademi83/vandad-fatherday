@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>دپارتمان کامپیوتر ونداد — سورپرایز روز پدر</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- IRANSans -->
+  <style>
+    @font-face{
+      font-family:"IRANSans";
+      src:url("fonts/IRANSansWeb.woff2") format("woff2"),
+          url("fonts/IRANSansWeb.woff") format("woff");
+      font-weight:400;
+      font-style:normal;
+      font-display:swap;
+    }
+    @font-face{
+      font-family:"IRANSans";
+      src:url("fonts/IRANSansWeb.woff2") format("woff2"),
+          url("fonts/IRANSansWeb.woff") format("woff");
+      font-weight:700;
+      font-style:normal;
+      font-display:swap;
+    }
+    @font-face{
+      font-family:"IRANSans";
+      src:url("fonts/IRANSansWeb.woff2") format("woff2"),
+          url("fonts/IRANSansWeb.woff") format("woff");
+      font-weight:900;
+      font-style:normal;
+      font-display:swap;
+    }
+  </style>
+
+  <style>
+    :root{
+      --red:#ed1c24;      /* قرمز لوگو */
+      --gray:#c6c6c6;     /* توسی لوگو */
+      --g2:#4b5563;
+      --g3:#1f2937;
+      --ink:#111827;
+      --bg:#f3f4f6;
+      --card:#ffffff;
+      --line:#e5e7eb;
+      --shadow:0 10px 28px rgba(0,0,0,.10);
+      --r:18px;
+      --font:"IRANSans", Tahoma, Arial, sans-serif;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:var(--font);
+      background:var(--bg);
+      color:var(--g3);
+      line-height:1.95;
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+      text-rendering:optimizeLegibility;
+    }
+
+    /* ===== HEADER (قرمز) ===== */
+    header{
+      background:var(--red);
+      color:#fff;
+      box-shadow: 0 10px 24px rgba(0,0,0,.14);
+    }
+    .header-inner{
+      width:min(1100px,92vw);
+      margin:auto;
+      padding:20px 0;
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    .logo{
+      width:92px;
+      height:92px;
+      border-radius:18px;
+      overflow:hidden;
+      background:#fff;
+      flex:0 0 auto;
+    }
+    .logo img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    .bigtitle{
+      margin:0;
+      font-size:30px;      /* یک پله بزرگ‌تر */
+      font-weight:900;
+      line-height:1.25;
+      letter-spacing:-.2px;
+    }
+    /* گفتی "ونداد" هم مثل بقیه سفید باشه */
+    .bigtitle .gray{
+      color:#fff;
+      font-weight:900;
+    }
+    .subheader{
+      font-size:15px;      /* بزرگ‌تر */
+      opacity:.95;
+      margin-top:6px;
+      font-weight:700;
+    }
+
+    /* ===== MAIN ===== */
+    main{
+      width:min(1100px,92vw);
+      margin:22px auto;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:var(--r);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+
+    /* تبریک */
+    .greet h2{
+      margin:0;
+      font-size:22px;   /* بزرگ‌تر */
+      font-weight:900;
+      color:var(--ink);
+    }
+    .greet .surprise{
+      margin-top:8px;
+      font-size:18px;   /* بزرگ‌تر */
+      font-weight:800;
+      color:var(--g2);
+    }
+    .greet p{
+      margin-top:10px;
+      font-size:15px;   /* بزرگ‌تر */
+      color:var(--g2);
+      font-weight:700;
+    }
+
+    /* انتخاب */
+    .select h3{
+      margin:0 0 8px;
+      font-size:19px;   /* بزرگ‌تر */
+      font-weight:900;
+      color:var(--ink);
+    }
+    .select .hint{
+      font-size:14px;   /* بزرگ‌تر */
+      color:var(--g2);
+      margin-bottom:12px;
+      font-weight:700;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+    }
+    @media(max-width:700px){
+      .grid{ grid-template-columns:1fr; }
+    }
+
+    a.item{
+      text-decoration:none;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      color:var(--g3);
+      background:#fff;
+      transition:.15s;
+    }
+    a.item:hover{ border-color:var(--red); }
+
+    .title{
+      font-size:15.5px; /* بزرگ‌تر */
+      font-weight:800;
+      color:var(--ink);
+    }
+    .desc{
+      font-size:13.5px; /* بزرگ‌تر */
+      color:var(--g2);
+      font-weight:700;
+      margin-top:4px;
+    }
+    .badge{
+      background:var(--red);   /* CTA فقط */
+      color:#fff;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:12.5px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    /* ===== FOOTER (جمع‌وجور) ===== */
+    footer{
+      background:#e5e7eb;
+      margin-top:auto;
+      border-top: 1px solid #d1d5db;
+    }
+    .footer-inner{
+      width:min(1100px,92vw);
+      margin:auto;
+      padding:12px 0;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
+      font-size:13.5px; /* کمی بزرگ‌تر */
+      color:#374151;
+      font-weight:700;
+    }
+
+    /* ===== Overlay موسیقی (اگر autoplay بلاک شد) ===== */
+    .overlay{
+      position:fixed; inset:0;
+      background: rgba(17,24,39,.62);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      padding:18px;
+    }
+    .overlay .box{
+      background:#fff;
+      border-radius:18px;
+      border:2px solid rgba(237,28,36,.35);
+      box-shadow: 0 18px 50px rgba(0,0,0,.22);
+      padding:18px;
+      width:min(520px,92vw);
+      text-align:center;
+    }
+    .overlay h4{
+      margin:0 0 8px;
+      font-size:16px;
+      font-weight:900;
+      color:var(--ink);
+    }
+    .overlay p{
+      margin:0;
+      font-size:13.5px;
+      color:var(--g2);
+      font-weight:700;
+      line-height:1.9;
+    }
+    .tap{
+      margin-top:12px;
+      display:inline-block;
+      background:var(--red);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:13px;
+    }
+
+    /* اگر ایران‌سنس لود نشه، حداقل ظاهر فرقش کمتر بشه */
+    .font-note{
+      display:none;
+      margin-top:8px;
+      font-size:12px;
+      color:rgba(255,255,255,.9);
+      opacity:.9;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <img src="vandad-logo.png" alt="ونداد">
+    </div>
+    <div>
+      <h1 class="bigtitle">
+        دپارتمان کامپیوتر <span class="gray">ونداد</span>
+      </h1>
+      <div class="subheader">سورپرایز دیجیتال روز پدر</div>
+      <div class="font-note" id="fontNote">اگر فونت ایران‌سنس اعمال نشد، فایل‌های پوشه fonts را بررسی کنید.</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="card greet">
+    <h2>پدرهای عزیز، روزتون مبارک 💙</h2>
+    <div class="surprise">سورپرایز دیجیتال روز پدر</div>
+  </section>
+
+  <section class="card select">
+    <h3>انتخاب شعبه و کلاس</h3>
+    <div class="hint">ابتدا شعبه را انتخاب کنید، سپس کلاس فرزندتان را انتخاب کنید.</div>
+
+    <!-- موسیقی -->
+    <audio id="music" preload="auto" loop playsinline>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="grid" id="list"></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© مؤسسه آموزشی ونداد</div>
+    <div>دپارتمان کامپیوتر</div>
+  </div>
+</footer>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay">
+  <div class="box">
+    <h4>برای پخش موسیقی یک‌بار لمس کنید 🎶</h4>
+    <div class="tap">لمس کنید</div>
+  </div>
+</div>
+
+<script>
+  // ===== DATA =====
+  const DATA={
+    bahar:{title:"شعبه بهار",classes:[
+      {name:"کلاس کامپیوتر پایه اول",teacher:"خانم مهندس شمسایی",url:"https://drive.google.com/drive/folders/1qRpBzfnv6_KGS95Pg-G_YDDZlYjaNGoR?usp=drive_link"},
+      {name:"کلاس کامپیوتر پایه دوم",teacher:"خانم مهندس شمسایی",url:"https://drive.google.com/drive/folders/11gaa5ivmdUlcDWfZJGC4Tz3MIzvJ5fws?usp=drive_link"},
+      {name:"کلاس کامپیوتر پایه سوم",teacher:"خانم مهندس شمسایی",url:"https://drive.google.com/drive/folders/15Xb2_bBgXJUH53FAz06Ev-ThEOpNo2JB?usp=drive_link"},
+      {name:"کلاس کامپیوتر پایه چهارم",teacher:"خانم مهندس حائری‌زاده",url:"https://drive.google.com/drive/folders/14SAEPKxMvS8h4GFh4VUywPaMfJBPdqZc?usp=drive_link"},
+		{name:" کلاس کامپیوتر پایه پنجم1",teacher:"خانم مهندس حائری‌زاده",url:"https://drive.google.com/drive/folders/1BuhPb0qF3NjaaAusProXBFBT1Lz4Cjj8?usp=drive_link"},
+      {name:" کلاس کامپیوتر پایه پنجم2",teacher:"خانم مهندس حائری‌زاده",url:"https://drive.google.com/drive/folders/1noWKB0JJ74vhH6HUBW9S4x8wWnNWRUdB?usp=drive_link"},
+      {name:"کلاس کامپیوتر پایه ششم",teacher:"خانم مهندس حائری‌زاده",url:"https://drive.google.com/drive/folders/1lAm2gz-g9_LmQ0LONeAjbmR_sFJ1LtkU?usp=drive_link"},
+    ]},
+    hejrat:{title:"شعبه هجرت",classes:[
+      {name:"کلاس کامپیوتر پایه اول ۱",teacher:"خانم مهندس غفاری",url:"https://drive.google.com/drive/folders/1tyXRUv01AolmLdSiqykzlIL9M-Jre6cH?usp=drive_link"},
+      {name:"کلاس کامپیوتر پایه اول ۲",teacher:"خانم مهندس غفاری",url:"https://drive.google.com/drive/folders/1IKrgAj1xh784Xj1ElaoAugAX4hDcOcWv?usp=drive_link"},
+      {name:"کلاس کامپیوتر پایه دوم",teacher:"خانم مهندس جلالی",url:"https://drive.google.com/drive/folders/1cp05Hcf6CR8xA3mr20gq7SkT7E_CMXk6?usp=drive_link"},
+      {name:"کلاس کامپیوتر پایه سوم ۱",teacher:"خانم مهندس جلالی",url:"https://drive.google.com/drive/folders/1E-u2JO9AhyuMdNvcYF_x0ajKH2-hR43e?usp=drive_link"},
+      {name:"کلاس کامپیوتر پایه سوم ۲",teacher:"خانم مهندس جلالی",url:"https://drive.google.com/drive/folders/1A_Se2XRKng2aJEscMXJKqDxfwwrqITHX?usp=drive_link"},
+      {name:"کلاس کامپیوتر پایه چهارم",teacher:"خانم مهندس جلالی",url:"https://drive.google.com/drive/folders/1Bh98aXBPW8vCuRR42umfHdjQvt2w0J0K?usp=drive_link"},
+      {name:"کلاس کامپیوتر پایه پنجم",teacher:"خانم مهندس غفاری",url:"https://drive.google.com/drive/folders/1niC8IrjSkDnRhkcfGorZwImVpxPANk7P?usp=drive_link"},
+      {name:"کلاس کامپیوتر پایه ششم",teacher:"خانم مهندس غفاری",url:"https://drive.google.com/drive/folders/10OkQ7CP9Cs0gQJ0jenCmpyQJkqCCR_3j?usp=drive_link"},
+    ]}
+  };
+
+  const list=document.getElementById("list");
+  const audio=document.getElementById("music");
+  const overlay=document.getElementById("overlay");
+  const fontNote=document.getElementById("fontNote");
+
+  function renderBranches(){
+    list.innerHTML="";
+    ["bahar","hejrat"].forEach(k=>{
+      const a=document.createElement("a");
+      a.className="item";
+      a.href="#";
+      a.innerHTML=`
+        <div>
+          <div class="title">${DATA[k].title}</div>
+          <div class="desc">نمایش کلاس‌ها</div>
+        </div>
+        <div class="badge">انتخاب</div>`;
+      a.onclick=e=>{e.preventDefault(); renderClasses(k);};
+      list.appendChild(a);
+    });
+  }
+
+  function renderClasses(k){
+    list.innerHTML="";
+    DATA[k].classes.forEach(c=>{
+      const a=document.createElement("a");
+      a.className="item";
+      a.href=c.url;
+      a.target="_blank";
+      a.rel="noopener";
+      a.innerHTML=`
+        <div>
+          <div class="title">${c.name}</div>
+          <div class="desc">${c.teacher}</div>
+        </div>
+        <div class="badge">ورود</div>`;
+      list.appendChild(a);
+    });
+
+    const back=document.createElement("a");
+    back.className="item";
+    back.href="#";
+    back.innerHTML=`
+      <div>
+        <div class="title">بازگشت</div>
+        <div class="desc">انتخاب شعبه</div>
+      </div>
+      <div class="badge">◀</div>`;
+    back.onclick=e=>{e.preventDefault(); renderBranches();};
+    list.appendChild(back);
+  }
+
+  renderBranches();
+
+  // ===== موسیقی: تلاش خودکار + اگر بلاک شد overlay =====
+  async function tryPlay(){
+    try{
+      audio.muted = false;
+      audio.volume = 0.65;
+      await audio.play();
+      overlay.style.display="none";
+    }catch(e){
+      overlay.style.display="flex";
+    }
+  }
+
+  window.addEventListener("load", ()=> setTimeout(tryPlay, 250));
+
+  function unlock(){
+    tryPlay();
+    document.removeEventListener("click", unlock);
+    document.removeEventListener("touchstart", unlock);
+  }
+  document.addEventListener("click", unlock, {once:true});
+  document.addEventListener("touchstart", unlock, {once:true});
+  overlay.addEventListener("click", unlock);
+
+  // ===== چک ساده فونت: اگر لود نشد پیام بده =====
+  // (فقط برای اینکه مطمئن شی مشکل از fonts نیست)
+  document.fonts?.ready?.then(()=>{
+    const ok = [...document.fonts].some(f => (f.family || "").includes("IRANSans"));
+    if(!ok && fontNote) fontNote.style.display="block";
+  });
+</script>
+
+</body>
+</html>
